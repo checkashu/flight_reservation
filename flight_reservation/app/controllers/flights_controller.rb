@@ -12,14 +12,32 @@ class FlightsController < ApplicationController
       render 'new'
     end
   end
-  def show
-
+  def edit
     @flight = Flight.find(params[:id])
   end
-
+  def update
+    @flight = Flight.find(params[:id])
+    if @flight.update(flight_params)
+      flash[:notice] = "Flight was successfully updated"
+      redirect_to flight_path(@flight)
+    else
+      render 'edit'
+    end
+  end
+  def show
+    @flight = Flight.find(params[:id])
+  end
+  def index
+    @flights = Flight.all
+  end
+  def destroy
+    @flight = Flight.find(params[:id])
+    @flight.destroy
+    flash[:notice] = "Flight details were deleted"
+    redirect_to flights_path
+  end
   private
     def flight_params
       params.require(:flight).permit(:number, :origin, :destination)
-
     end
 end
