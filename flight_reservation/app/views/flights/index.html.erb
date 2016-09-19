@@ -1,28 +1,28 @@
-<h1>Showing all Flights</h1>
-  <p>
-    <%= link_to "Add new Flight", new_flight_path %>
-  </p>
-
-  <table>
-    <tr>
-      <th>Number</th>
-      <th>Origin</th>
-      <th>Destination</th>
-      <th>DateTime</th>
-      <th>Price</th>
-    </tr>
-    <% @flights.each do |flight| %>
-      <tr>
-        <td><%= flight.number %></td>
-        <td><%= flight.origin %></td>
-        <td><%= flight.destination %></td>
-        <td><%= flight.datetime %></td>
-        <td><%= flight.price %></td>
-        <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
-        <td><%= link_to 'Show', flight_path(flight) %></td>
-        <td><%= link_to 'Delete', flight_path(flight), method: :delete, data: {confirm: "You sure?"} %></td>
-      </tr>
-    <% end %>
-
-  </table>
-
+<h1 align="center">Showing all Flights</h1>
+  <% @flights.each do |flight| %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg">
+          <div class="flight-number">
+            <%= link_to flight.number, flight_path(flight) %>
+              </div>
+                <div class="flight-body">
+                  <%= (flight.origin) %>
+                </div>
+                <div class="flight-body">
+                  <%= (flight.destination) %>
+                </div>
+                <div class="flight-body">
+                  <%= (flight.datetime) %>
+                </div>
+                <div class="flight-body">
+                  <%= (flight.price) %>
+                </div>
+                <div class="flight-actions">
+              <%= link_to "Edit this flight", edit_flight_path(flight), class: "btn btn-xs btn-primary" %>
+            <%= link_to "Delete this flight", flight_path(flight), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

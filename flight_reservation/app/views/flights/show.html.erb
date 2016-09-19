@@ -1,19 +1,16 @@
-<h1 align="center">Showing flight</h1>
+<h2 align="center">Number: <%= @flight.number %></h2>
+<div class="well col-xs-8 col-xs-offset-2">
+  <h5 class="description"><strong>Origin: <%= simple_format(@flight.origin) %></strong></h4>
+  <h5 class="description"><strong>Destination: <%= simple_format(@flight.destination) %></strong></h4>
+  <h5 class="description"><strong>DateTime: <%= (@flight.datetime) %></strong></h4>
+  <h5 class="description"><strong>Price: <%= (@flight.price) %></strong></h4>
+  
+  <hr>
+  
+  <div class="flight-actions">
 
-<p>
-  Number: <%= @flight.number %>
-</p>
-<p>
-  Origin: <%= @flight.origin %>
-</p>
-<p>
-  Destination: <%= @flight.destination %>
-</p>
-<p>
-  Time: <%= @flight.datetime %>
-</p>
-<p>
-  Price: <%= @flight.price %>
-</p>
-<%= link_to "Edit this flight", edit_flight_path(@flight) %> |
-<%= link_to "Back to flights list", flights_path %>
+  <%= link_to "Edit this flight", edit_flight_path(@flight) %> |
+  <%= link_to "Back to flights list", flights_path %>
+  <%= link_to "Delete this flight", flight_path(@flight), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %>
+  <%= link_to "View all flights", flights_path, class: "btn btn-xs btn-success" %>
+</div>
