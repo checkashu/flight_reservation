@@ -6,34 +6,66 @@
   <% end %>
 </ul>
 <% end %>
-<%= form_for @flight do |f| %>
-  <p>
-    <%= f.label :number %> <br/>
-    <%= f.text_field :number %>
-  </p>
-  <p>
-    <%= f.label :origin %> <br/>
-    <%= f.text_field :origin %>
-  </p>
-  <p>
-    <%= f.label :destination %> <br/>
-    <%= f.text_field :destination %>
-  </p>
-  <p>
-    <%= f.label :date %> <br/>
-    <%= f.text_field :date %>
-  </p>
-  <p>
-    <%= f.label :time %> <br/>
-    <%= f.text_field :time %>
-  </p>
-  <p>
-    <%= f.label :price %> <br/>
-    <%= f.text_field :price %>
-  </p>
+<div class='row'>
+  <div class='col-xs-12'>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-<%= link_to "Back to flights list", flights_path %>
+    <%= form_for(@flight, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :number %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :number, class: "form-control", placeholder: "Flight Number", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :origin %>
+        </div>
+        <div class="col-sm-8">    
+          <%= f.text_field :origin, class: "form-control", placeholder: "Origin of Flight" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :destination %>
+        </div>
+        <div class="col-sm-8">    
+          <%= f.text_field :destination, class: "form-control", placeholder: "Destination of Flight" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :date %>
+        </div>
+        <div class="col-sm-8">    
+          <%= f.date_field :date, class: "form-control", placeholder: "Date of Flight" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :time %>
+        </div>
+        <div class="col-sm-8">    
+          <%= f.time_field :time, class: "form-control", placeholder: "Time of Flight" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :price %>
+        </div>
+        <div class="col-sm-8">    
+          <%= f.number_field :price, class: "form-control", placeholder: "Price of Flight" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit class: 'btn btn-primary btn-lg' %>
+        </div>
+      </div>
+      <% end %>
+      <div class="col-xs-4 col-xs-offset-4">
+        [ <%= link_to "Cancel and Back to flights list", flights_path %> ]
+      </div>
+   </div>
+</div>
