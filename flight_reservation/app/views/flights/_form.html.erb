@@ -1,27 +1,6 @@
-<% if @flight.errors.any? %>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <div class="panel panel-danger">
-        <div class="panel-heading">
-          <h2 class="panel-title">
-            <%= pluralize(@flight.errors.count, "error") %>
-            prohibited this flight from being saved:
-          </h2>
-          <div class="panel-body">
-            <ul>
-              <% @flight.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>    
-  </div>
-<% end %>
+<%= render 'shared/errors', obj: @flight %>
 <div class='row'>
   <div class='col-xs-12'>
-
     <%= form_for(@flight, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class="form-group">
         <div class="control-label col-sm-2">
@@ -52,7 +31,7 @@
           <%= f.label :datetime %>
         </div>
         <div class="col-sm-8">    
-          <%= f.datetime_local_field :datetime, class: "form-control", placeholder: "Time of Flight" %>
+          <%= f.datetime_local_field :datetime, class: "form-control", placeholder: "Date & Time of Flight" %>
         </div>
       </div>
       <div class="form-group">

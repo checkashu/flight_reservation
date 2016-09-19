@@ -6,7 +6,7 @@ class FlightsController < ApplicationController
 
     @flight = Flight.new(flight_params)
     if @flight.save
-      flash[:notice] = "Flight created successfully"
+      flash[:success] = "Flight created successfully"
       redirect_to flight_path(@flight)
     else
       render 'new'
@@ -18,7 +18,7 @@ class FlightsController < ApplicationController
   def update
     @flight = Flight.find(params[:id])
     if @flight.update(flight_params)
-      flash[:notice] = "Flight was successfully updated"
+      flash[:success] = "Flight was successfully updated"
       redirect_to flight_path(@flight)
     else
       render 'edit'
@@ -33,7 +33,7 @@ class FlightsController < ApplicationController
   def destroy
     @flight = Flight.find(params[:id])
     @flight.destroy
-    flash[:notice] = "Flight details were deleted"
+    flash[:danger] = "Flight details were deleted"
     redirect_to flights_path
   end
   private
