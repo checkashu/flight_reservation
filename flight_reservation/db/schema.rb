@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20160917181623) do
 
   create_table "flights", force: :cascade do |t|
-    t.integer "number"
-    t.date    "date"
-    t.string  "origin"
-    t.string  "destination"
-    t.time    "time"
-    t.integer "price"
+    t.integer  "number"
+    t.time     "time"
+    t.string   "origin"
+    t.string   "destination"
+    t.datetime "datetime"
+    t.integer  "price"
   end
 
 end

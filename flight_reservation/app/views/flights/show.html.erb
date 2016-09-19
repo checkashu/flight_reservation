@@ -1,16 +1,19 @@
-<h1>Showing flight</h1>
+<h1 align="center">Showing flight</h1>
 
 <p>
   Number: <%= @flight.number %>
 </p>
 <p>
   Origin: <%= @flight.origin %>
-
 </p>
 <p>
   Destination: <%= @flight.destination %>
-
 </p>
-
+<p>
+  Time: <%= @flight.datetime %>
+</p>
+<p>
+  Price: <%= @flight.price %>
+</p>
 <%= link_to "Edit this flight", edit_flight_path(@flight) %> |
 <%= link_to "Back to flights list", flights_path %>
